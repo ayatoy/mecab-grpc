@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mecab;
+
+service MeCab {
+    rpc Parse (ParseRequest) returns (ParseResponse);
+}
+
+message ParseRequest {
+    repeated string sentences = 1;
+}
+
+message ParseResponse {
+    repeated Sentence sentences = 1;
+}
+
+message Sentence {
+    repeated Word words = 1;
+}
+
+message Word {
+    string surface = 1;
+    repeated string feature = 2;
+}
