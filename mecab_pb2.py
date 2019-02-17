@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='mecab',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bmecab.proto\x12\x05mecab\"5\n\x0cParseRequest\x12\x11\n\tsentences\x18\x01 \x03(\t\x12\x12\n\ndictionary\x18\x02 \x01(\t\"3\n\rParseResponse\x12\"\n\tsentences\x18\x01 \x03(\x0b\x32\x0f.mecab.Sentence\"&\n\x08Sentence\x12\x1a\n\x05words\x18\x01 \x03(\x0b\x32\x0b.mecab.Word\"(\n\x04Word\x12\x0f\n\x07surface\x18\x01 \x01(\t\x12\x0f\n\x07\x66\x65\x61ture\x18\x02 \x03(\t2;\n\x05MeCab\x12\x32\n\x05Parse\x12\x13.mecab.ParseRequest\x1a\x14.mecab.ParseResponseb\x06proto3')
+  serialized_pb=_b('\n\x0bmecab.proto\x12\x05mecab\"5\n\x0cParseRequest\x12\x11\n\tsentences\x18\x01 \x03(\t\x12\x12\n\ndictionary\x18\x02 \x01(\t\"3\n\rParseResponse\x12\"\n\tsentences\x18\x01 \x03(\x0b\x32\x0f.mecab.Sentence\"&\n\x08Sentence\x12\x1a\n\x05words\x18\x01 \x03(\x0b\x32\x0b.mecab.Word\"(\n\x04Word\x12\x0f\n\x07surface\x18\x01 \x01(\t\x12\x0f\n\x07\x66\x65\x61ture\x18\x02 \x03(\t2=\n\x05MeCab\x12\x34\n\x05Parse\x12\x13.mecab.ParseRequest\x1a\x14.mecab.ParseResponse\"\x00\x62\x06proto3')
 )
 
 
@@ -207,7 +207,7 @@ _MECAB = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=212,
-  serialized_end=271,
+  serialized_end=273,
   methods=[
   _descriptor.MethodDescriptor(
     name='Parse',
