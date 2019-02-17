@@ -9,8 +9,6 @@ service MeCab {
 message ParseRequest {
     repeated string sentences = 1;
     string dictionary = 2;
-    bool bos = 3;
-    bool eos = 4;
 }
 
 message ParseResponse {
