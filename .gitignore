@@ -118,3 +118,6 @@ dmypy.json
 # Visual Studio Code
 .vscode
 
+# generated sources by protoc
+mecab_pb2.py
+mecab_pb2_grpc.py

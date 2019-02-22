@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package mecab;
 
-service MeCab {
+service Parser {
     rpc Parse (ParseRequest) returns (ParseResponse) {}
 }
 
