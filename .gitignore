@@ -121,3 +121,6 @@ dmypy.json
 # generated sources by protoc
 mecab_pb2.py
 mecab_pb2_grpc.py
+
+# Editorconfig
+.editorconfig
