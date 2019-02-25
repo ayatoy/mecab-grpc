@@ -1,0 +1,11 @@
+Dockerfile*
+.dockerignore
+.git
+.gitignore
+.env
+*/bin
+*/obj
+README.md
+LICENSE
+.vscode
+.editorconfig
