@@ -24,6 +24,7 @@ RUN ./configure --with-charset=utf8 \
 COPY . /mecab-grpc
 WORKDIR /mecab-grpc
 RUN python -m pip install --upgrade pip \
-    && python -m pip install -r requirements.txt
+    && python -m pip install -r requirements.txt \
+    && sh protoc-gen.sh
 
 CMD ["python", "server.py"]
