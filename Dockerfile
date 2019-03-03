@@ -1,30 +1,36 @@
 FROM python:3.5.6-alpine3.9
 LABEL Name=mecab-grpc Version=1.0.0
 
-RUN apk add --no-cache git make g++ swig
+COPY . /opt/mecab-grpc
 
-WORKDIR /
-RUN git clone https://github.com/taku910/mecab.git
-WORKDIR /mecab/mecab
-RUN ./configure --enable-utf8-only \
-    && make \
-    && make check \
-    && make install
+RUN set -x \
+    && apk add --no-cache --virtual .run-deps \
+        g++ \
+    \
+    && apk add --no-cache --virtual .build-deps \
+        git \
+        make \
+        swig \
+    \
+    && mkdir -p /usr/local/src \
+    && cd /usr/local/src \
+    && git clone https://github.com/taku910/mecab.git \
+    \
+    && cd /usr/local/src/mecab/mecab \
+    && ./configure --enable-utf8-only && make && make check && make install \
+    \
+    && cd /usr/local/src/mecab/mecab-ipadic \
+    && ./configure --with-charset=utf8 && make && make check && make install \
+    \
+    && cd /opt/mecab-grpc \
+    && pip install \
+        --disable-pip-version-check \
+        --no-cache-dir \
+        -r requirements.txt \
+    && sh protoc-gen.sh \
+    \
+    && apk del --purge .build-deps \
+    && rm -rf /usr/local/src/mecab
 
-WORKDIR /mecab/mecab-ipadic
-RUN ./configure --with-charset=utf8 \
-    && make \
-    && make install
-
-WORKDIR /mecab/mecab-jumandic
-RUN ./configure --with-charset=utf8 \
-    && make \
-    && make install
-
-COPY . /mecab-grpc
-WORKDIR /mecab-grpc
-RUN python -m pip install --upgrade pip \
-    && python -m pip install -r requirements.txt \
-    && sh protoc-gen.sh
-
+WORKDIR /opt/mecab-grpc
 CMD ["python", "server.py"]
