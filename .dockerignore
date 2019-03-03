@@ -2,7 +2,9 @@ Dockerfile*
 .dockerignore
 .git
 .gitignore
+__pycache__/
 .env
+.venv
 */bin
 */obj
 README.md
